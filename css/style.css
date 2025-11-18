@@ -99,9 +99,9 @@ h1 {
     content: '';
     position: absolute;
     top: -20px;
-    left: -35px; /* 👈 Компенсує padding-left: 32px */
-    right: -35px; /* 👈 Компенсує padding-right: 32px */
-    bottom: -20px; /* 👈 Компенсує padding-bottom: 20px */
+    left: -35px; 
+    right: -35px; 
+    bottom: -20px; 
     background-color: #48556A;
     opacity: 1;
     z-index: 0;
@@ -174,7 +174,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* ⬅️ Центрує точно */
+    transform: translate(-50%, -50%); /
 }
 
 /* POP-UP */
@@ -210,7 +210,7 @@ h1 {
 .share-popup {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* 👈 Центрує popup по висоті кнопки */
+    transform: translateY(-50%); 
     margin-right: 10px;
     border-radius: 10px;
     z-index: 10;
@@ -255,7 +255,7 @@ h1 {
         z-index: 1000;
     }
     .share-content {
-        padding: 18px 38px; /* 👈 Як на макеті */
+        padding: 18px 38px; 
         gap: 16px;
         border-radius: 10px;
     }
@@ -263,15 +263,15 @@ h1 {
     .share-popup::after {
         content: '';
         position: absolute;
-        bottom: -10px; /* 👈 Внизу popup */
+        bottom: -10px; 
         left: 50%;
         transform: translateX(-50%);
-        right: 20px; /* 👈 Трохи зліва від правого краю */
+        right: 20px; 
         width: 0;
         height: 0;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
-        border-top: 10px solid #48556A; /* 👈 Стрілочка вниз */
+        border-top: 10px solid #48556A; 
     }
     .button-container.is-active::before{
         display: none;
