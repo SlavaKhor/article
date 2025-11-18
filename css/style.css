@@ -1,0 +1,293 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.page-wraper {
+    background-color: #ECF2F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.modal-wraper {
+    max-width: 327px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.image-wraper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-wraper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-wraper {
+    padding: 36px 32px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.header {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: 0.25px;
+    color: #48556A;
+}
+
+.content {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0.12%;
+    color: #6E8098;
+}
+
+.button-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-container.is-active::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -35px; /* 👈 Компенсує padding-left: 32px */
+    right: -35px; /* 👈 Компенсує padding-right: 32px */
+    bottom: -20px; /* 👈 Компенсує padding-bottom: 20px */
+    background-color: #48556A;
+    opacity: 1;
+    z-index: 0;
+}
+
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-info.is-hidden{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.user-info img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0.12%;
+    color: #48556A;
+}
+
+.date {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 0.12%;
+    color: #6E8098;
+}
+
+.share-btn {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ECF2F8;
+    color: #6E8098;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.share-btn:hover,
+.share-btn.is-active{
+    background-color: #6E8098;
+    color: #FFFFFF;
+}
+
+.share-btn svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ⬅️ Центрує точно */
+}
+
+/* POP-UP */
+.share-content{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    background-color: #48556A;
+    
+}
+
+.share-label{
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 25%;
+    font-weight: 400;
+    color: #9DAEC2;
+}
+
+.social-media-list{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+.social-media-list a {
+  fill: #FFFFFF;
+}
+
+.share-popup {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* 👈 Центрує popup по висоті кнопки */
+    margin-right: 10px;
+    border-radius: 10px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.share-popup.is-open{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media(min-width: 768px) {
+    .modal-wraper{
+        max-width: 608px;
+        flex-direction: row;
+        overflow: visible;
+    }
+    .button-container{
+        width: 100%;
+        justify-content: space-between;
+    }
+    .image-wraper{
+        width: 285px;
+        height: auto;
+    }
+    .content-wraper{
+        max-width: 311px;
+        height: auto;
+    }
+    .share-popup {
+        right: -98px; 
+        left: auto;
+        top: auto;
+        bottom: 100%;
+        transform: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+        z-index: 1000;
+    }
+    .share-content {
+        padding: 18px 38px; /* 👈 Як на макеті */
+        gap: 16px;
+        border-radius: 10px;
+    }
+
+    .share-popup::after {
+        content: '';
+        position: absolute;
+        bottom: -10px; /* 👈 Внизу popup */
+        left: 50%;
+        transform: translateX(-50%);
+        right: 20px; /* 👈 Трохи зліва від правого краю */
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #48556A; /* 👈 Стрілочка вниз */
+    }
+    .button-container.is-active::before{
+        display: none;
+    }
+
+    .user-info.is-hidden {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+@media (min-width: 1440px) {
+    .modal-wraper{
+        max-width: 730px;
+    }
+    .image-wraper{
+        width: 350px;
+    }
+    .content-wraper{
+        max-width: 365px;
+    }
+}
